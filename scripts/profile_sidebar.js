@@ -32,3 +32,14 @@ function openSMMenu() {
 function closeSMMenu() {
   document.getElementById("smMenu").style.display = "none";
 }
+
+function openPicMenu() {
+  document.getElementById("main").style.marginRight = "30%";
+  document.getElementById("picMenu").style.width = "30%";
+  document.getElementById("picMenu").style.display = "block";
+  document.getElementById("nav").style.display = "none";
+}
+
+function closePicMenu() {
+  document.getElementById("picMenu").style.display = "none";
+}
