@@ -51,6 +51,16 @@
     });
   };
 
+  RemoteDataStore.prototype.query = function (d, cb) {
+    $.ajax(this.serverUrl, {
+      type: "GET",
+      data: d
+    }).done(function(serverResponse) {
+      console.log(serverResponse);
+      cb(serverResponse);
+    });
+  };
+
   App.RemoteDataStore = RemoteDataStore;
   window.App = App;
 
