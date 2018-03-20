@@ -1,2 +1,5 @@
-# Ignore the modules folder
+# Node modules folder
 node_modules
+
+# VIM files
+*~
