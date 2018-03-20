@@ -11,9 +11,9 @@ var handleError = function(err, res) {
 
 var server = http.createServer(function(req, res) {
   console.log("Responding to a request.");
-  var html = getHTMLfor(req.url);
-  console.log("html " + html);
-  res.setHeader("Content-Type", "text/html");
-  res.end(html);
+  var data = getHTMLfor(req.url);
+  // console.log("html " + html);
+  res.setHeader("Content-Type", data.type);
+  res.end(data.html);
 });
 server.listen(3000);
