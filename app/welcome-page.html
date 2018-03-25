@@ -4,58 +4,107 @@
 <head>
   <meta charset="utf-8">
   <title>Business Card</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+  <!--
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  -->
   <link rel="stylesheet" href="stylesheets/welcome-page-styles.css">
 </head>
 
 <body>
+  <!-- Welcome Menu Sidebar - - - - - - - - - - - - - - - - - - - - - -->
+  <div>
+    <div class="w3-sidebar w3-bar-block w3-card w3-animate-right w3-padding" style="display:none;right:0;" id="welcomeMenu">
+      <button class="w3-button w3-xxlarge fa fa-window-close w3-light-grey" onclick="closeWelcomeMenu()"></button>
+      <label class="w3-bar-item w3-center w3-light-grey" href="#">MENU</label>
 
-  <a href="#">
+      <div class="w3-row w3-section w3-bar-item w3-button" onclick="">
+        <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-sign-in"></i></div>
+        <div class="w3-rest"><a class="w3-bar-item" font size="15px">Login</a></div>
+      </div>
+
+      <div class="w3-row w3-section w3-bar-item w3-button" onclick="">
+        <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-address-book"></i></div>
+        <div class="w3-rest"><a class="w3-bar-item" font size="15px">Sign Up</a></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Header - - - - - - - - - - - - - - - - - - - - - -->
+  <div id="main">
+    <div class="w3-display-container w3-dark-gray w3-opacity">
+      <a href="#"><i class="fa fa-home w3-button"></i></a>
+      <img class="w3-display-middle" src="img/website_logo.png" style="height:50px">
+      <a href="#"><i class="fa fa-cog w3-button w3-right" onclick="openWelcomeMenu()" id="nav"></i></a>
+    </div>
+
+    <!--
+    <a href="#">
     <span class="login"> Login </span>
   </a>
 
-  <a href="#">
+    <a href="#">
     <span class="login"> Sign-Up </span>
   </a>
+  -->
 
-  <header class="main-header">
-    <h1 class="logo-text">Welcome!!</h1>
-  </header>
+    <main class="main-content">
 
-  <main class="main-content">
+      <div class="main-container">
+        <header class="main-header">
+          <h1 class="logo-text">Welcome!!</h1>
+        </header>
 
-    <div class="main-header row">
-      <li>
-        <a href="#">
-            <img class="thumbnail-item" src="images/businessman.jpg" alt="Businessman">
+        <div class="w3-container w3-center w3-margin w3-card-4">
+          <li>
+            <a href="#">
+            <img class="thumbnail-item" src="img/businessman.jpg" alt="Businessman">
           </a>
-        <div class="photo-text">Welcome to Business Card Coorperation. Our main concern is to make you look professional.</div>
-      </li>
-    </div>
-
-    <div class="main-header row">
-      <li>
-        <a href="#">
-        <img class="thumbnail-item" src="images/web_card.jpg" alt="Professional Web Card">
-        </a>
-        <div class="photo-text">We typically have profiles work off of card-like layouts. This is because it's what the cool kids are doing today. Our business card layouts have lots of available thing that a regular business card wouldn't have. You can make it easily accessable
-          for job recruiters to access your linkedin, facebook, and github accounts.
+            <div class="photo-text">Welcome to Business Card Coorperation. Our main concern is to make you look professional.</div>
+          </li>
         </div>
+      </div>
 
-      </li>
+      <div class="main-container">
+        <div class="w3-container w3-center w3-margin w3-card-4">
+          <li>
+            <a href="#">
+        <img class="thumbnail-item" src="img/web_card.jpg" alt="Professional Web Card">
+        </a>
+            <div class="photo-text">We typically have profiles work off of card-like layouts. This is because it's what the cool kids are doing today. Our business card layouts have lots of available thing that a regular business card wouldn't have. You can make it easily accessable
+              for job recruiters to access your linkedin, facebook, and github accounts.
+            </div>
 
-    </div>
-    <div class="main-header row">
-      <li>
-        <a href="#">
-            <img class="thumbnail-item" src="images/albert.jpg" alt="Alberts card">
+          </li>
+
+        </div>
+      </div>
+
+      <div class="main-container">
+        <div class="main-header w3-container w3-center w3-margin w3-card-4">
+          <li>
+            <a href="#">
+            <img class="thumbnail-item" src="img/albert.jpg" alt="Alberts card">
             </a>
-        <div class="photo-text">With our popular software, you can make a business card that is sure to impress a recruiter. Either login to your account to access your profile, or create an account easily with a couple of steps.</div>
-      </li>
+            <div class="photo-text">With our popular software, you can make a business card that is sure to impress a recruiter. Either login to your account to access your profile, or create an account easily with a couple of steps.</div>
+          </li>
 
-    </div>
-  </main>
+        </div>
+      </div>
+
+    </main>
+
+    <footer class="site-footer w3-dark-gray w3-opacity">
+      <p class="center">&emsp;&copy; CPSC473-Section 2 Team 2</p>
+    </footer>
+
+  </div>
+
+  <script src="scripts/profile_sidebar.js" charset="utf-8"></script>
+
 </body>
 
 </html>
