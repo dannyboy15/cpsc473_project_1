@@ -9,7 +9,7 @@ var HTML = "app";
 var IMG = "img";
 
 pages = {
-  "/" : "index.html",
+  "/" : "welcome-page.html",
   "/login" : "login.html",
   "/logout" : "logout.html",
   "/profile": "profile.html",
