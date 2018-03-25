@@ -13,9 +13,8 @@ You will need to download and install a few things before you get started.
 
 You will need Node.js to run the server. You can download it [here](https://nodejs.org/en/download/).
 
-You will need MongoDB and Deployd to run the backend server. 
+You will need [MongoDB](https://docs.mongodb.com/manual/administration/install-community/) and [Deployd](https://github.com/deployd/deployd#install-from-npm) to run the backend server. 
 
-[MongoDB](https://docs.mongodb.com/manual/administration/install-community/) [Deployd](https://github.com/deployd/deployd#install-from-npm)
 
 Create a directory to store the project in.
 ```
@@ -52,7 +51,7 @@ dpd -d
 
 ## Authors
 * **Daniel Bravo** [dannyboy15](https://github.com/dannyboy15)
-* **Dominick Hem** [donhem](https://github.com/donhem)
+* **Dominick Hem** [domhem](https://github.com/domhem)
 * **Vishnu Shesha** [username](https://github.com)
 * **Roy Redman** [royredman4](https://github.com/royredman4)
 * **Prajwal Bhyrappa** [username](https://github.com)
