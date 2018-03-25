@@ -2,6 +2,7 @@
   "use strict";
   var App = window.App || {};
   var $ = window.jQuery;
+  var LOGIN_URL = "http://localhost:2403/users/login";
 
   function RemoteDataStore(url) {
     if (!url) {
@@ -54,6 +55,16 @@
   RemoteDataStore.prototype.query = function (d, cb) {
     $.ajax(this.serverUrl, {
       type: "GET",
+      data: d
+    }).done(function(serverResponse) {
+      console.log(serverResponse);
+      cb(serverResponse);
+    });
+  };
+
+  RemoteDataStore.prototype.login = function (d, cb) {
+    $.ajax(LOGIN_URL, {
+      type: "Post",
       data: d
     }).done(function(serverResponse) {
       console.log(serverResponse);
