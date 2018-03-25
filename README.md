@@ -32,7 +32,7 @@ git clone https://github.com/dannyboy15/cpsc473_project_1.git
 cd cpsc473_project_1
 
 npm install get-dependencies --save
-npm --save-dev nodemon
+npm install --save-dev nodemon
 ```
 
 ## Running the site locally
