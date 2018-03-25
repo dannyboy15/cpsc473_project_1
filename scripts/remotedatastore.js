@@ -2,7 +2,7 @@
   "use strict";
   var App = window.App || {};
   var $ = window.jQuery;
-  var LOGIN_URL = "http://localhost:2403/users/login";
+  var USERS = "http://localhost:2403/users";
 
   function RemoteDataStore(url) {
     if (!url) {
@@ -62,10 +62,32 @@
     });
   };
 
+  RemoteDataStore.prototype.userExists = function (d, cb) {
+    $.ajax(USERS, {
+      type: "GET",
+      data: d
+    }).done(function(serverResponse) {
+      // console.log(serverResponse);
+      exists = serverResponse.length > 0;
+      console.log(exists);
+      cb(serverResponse);
+    });
+  };
+
   RemoteDataStore.prototype.login = function (d, cb) {
-    $.ajax(LOGIN_URL, {
+    $.ajax(USERS + "/login", {
       type: "Post",
       data: d
+    }).done(function(serverResponse) {
+      console.log(serverResponse);
+      cb(serverResponse);
+    });
+  };
+
+  RemoteDataStore.prototype.upload = function (file, cb) {
+    $.ajax(this.serverUrl, {
+      type: "Post",
+      data: file
     }).done(function(serverResponse) {
       console.log(serverResponse);
       cb(serverResponse);
