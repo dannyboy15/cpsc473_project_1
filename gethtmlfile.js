@@ -15,7 +15,8 @@ pages = {
   "/profile": "profile.html",
   "/signup" : "signup.html",
   "/welcome" : "welcome-page.html",
-  "404" : "404.html",
+  "/register" : "../registration page/reg.html",
+  "404" : "404.html"
 };
 
 var getPage = function(url) {

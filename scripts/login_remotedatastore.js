@@ -30,8 +30,9 @@
     }).done(function(serverResponse) {
       console.log(serverResponse);
       var a = {
-        sid: serverResponse.id
+        id: serverResponse.uid
       };
+      console.log(a);
 
       // $.ajax({
       //   type: "GET",
@@ -54,7 +55,7 @@
         data: a
       }).done(function(serverResponse) {
         console.log("get me", serverResponse);
-        window.location = "/profile/" + serverResponse[0].displayname;
+        window.location = "/profile/" + serverResponse.displayname;
         cb(serverResponse);
       });
 
