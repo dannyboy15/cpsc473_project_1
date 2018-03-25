@@ -13,6 +13,9 @@ You will need to download and install a few things before you get started.
 
 You will need Node.js to run the server. You can download it [here](https://nodejs.org/en/download/).
 
+You will need [MongoDB](https://docs.mongodb.com/manual/administration/install-community/) and [Deployd](https://github.com/deployd/deployd#install-from-npm) to run the backend server. 
+
+
 Create a directory to store the project in.
 ```
 mkdir SiteName
@@ -29,6 +32,7 @@ git clone https://github.com/dannyboy15/cpsc473_project_1.git
 cd cpsc473_project_1
 
 npm install get-dependencies --save
+npm --save-dev nodemon
 ```
 
 ## Running the site locally
@@ -37,11 +41,18 @@ To start the server
 ```
 npm run dev
 ```
+To start the back end server
+```
+npm install deployd-cli -g
+dpd create profiles-backend
+cd profiles-backend
+dpd -d
+```
 
 ## Authors
 * **Daniel Bravo** [dannyboy15](https://github.com/dannyboy15)
-* **Dominick Hem** [username](https://github.com)
+* **Dominick Hem** [domhem](https://github.com/domhem)
 * **Vishnu Shesha** [username](https://github.com)
-* **Roy Redman** [username](https://github.com)
+* **Roy Redman** [royredman4](https://github.com/royredman4)
 * **Prajwal Bhyrappa** [username](https://github.com)
-* **Peng Chen** [username](https://github.com)
+* **Peng Chen** [pengchen95](https://github.com/pengchen95)
