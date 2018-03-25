@@ -1,0 +1,37 @@
+body {
+  background-color: powderblue;
+}
+
+.main-content {
+  font-family:sans-serif;
+}
+
+.main-header {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+}
+
+.photo-text {
+  display: inline-block;
+  width: 400px;
+  vertical-align: top;
+}
+
+.thumbnail-item {
+  display: inline-block;
+  width: 50%;
+  max-width: 600px;
+  max-height: 420px
+  padding-left: 80px;
+}
+
+
+.login {
+  padding: 10px;
+  padding-top: 30px;
+  display: flex;
+  flex-direction:column;
+  align-items:flex-end;
+
+}
