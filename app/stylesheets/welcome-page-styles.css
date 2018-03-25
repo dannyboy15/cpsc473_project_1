@@ -21,6 +21,8 @@ body {
 .thumbnail-item {
   display: inline-block;
   width: 50%;
+  max-width: 600px;
+  max-height: 420px
   padding-left: 80px;
 }
 
