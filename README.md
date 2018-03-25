@@ -12,7 +12,9 @@ You will need to download and install a few things before you get started.
 ### Prerequisites
 
 You will need Node.js to run the server. You can download it [here](https://nodejs.org/en/download/).
-You will need MongoDB and Deployd to run the backend server. [MongoDB](https://docs.mongodb.com/manual/administration/install-community/) [Deployd](https://github.com/deployd/deployd#install-from-npm)
+
+You will need MongoDB and Deployd to run the backend server. 
+[MongoDB](https://docs.mongodb.com/manual/administration/install-community/) [Deployd](https://github.com/deployd/deployd#install-from-npm)
 
 Create a directory to store the project in.
 ```
