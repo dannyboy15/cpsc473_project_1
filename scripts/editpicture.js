@@ -1,8 +1,10 @@
+//function replaces the preview image in the menu sidebar with the uploaded image
 function previewFile() {
+  //get the preview image location by ID
   var preview = document.getElementById("preview");
   var file = document.querySelector("input[type=file]").files[0];
   var reader = new FileReader();
-
+  //if image was uploaded, replace the preview image with the uploaded image
   reader.onloadend = function() {
     preview.src = reader.result;
   };
@@ -15,11 +17,14 @@ function previewFile() {
 }
 previewFile(); //calls the function named previewFile()
 
+//function replaces the current profile image with the new uploaded image
 function editFile() {
-  var preview = document.getElementById("preview"); 
+  var preview = document.getElementById("preview");
   var profilePic = document.getElementById("profilePic");
+  //the profile image will not change if no image was uploaded
+  //the url below is the address of the default preview image
   if (preview.src != "http://localhost:3000/img/upload-empty.png") {
-    console.log(preview.src);
+    //console.log(preview.src);
     profilePic.src = preview.src;
   }
 }
