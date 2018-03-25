@@ -9,19 +9,50 @@
   var RemoteDataStore = App.RemoteDataStore;
   var FormHandler = App.FormHandler;
   var remoteDS = new RemoteDataStore("http://localhost:2403/user-accounts");
-  var myProfile = new Profile("ncc-1701", remoteDS);
-  window.myProfile = myProfile;
-  var profileHandler = new FormHandler(PROFILE_FORM_SELECTOR);
-  var smHandler = new FormHandler(SM_FORM_SELECTOR);;
 
-  profileHandler.addSubmitHandler(function (data) {
-    // myProfile.createProfile.call(myProfile, data);
-    myProfile.editProfile.call(myProfile, data);
+
+  var user = window.location.href.match(/\/profile\/([^#]+).*/);
+  var uid;
+
+  remoteDS.query({username:user[1]}, function (data) {
+    var a = data[0];
+    uid = a.id;
+
+    var myProfile = new Profile(uid, remoteDS);
+    window.myProfile = myProfile;
+    var profileHandler = new FormHandler(PROFILE_FORM_SELECTOR);
+    var smHandler = new FormHandler(SM_FORM_SELECTOR);
+
+    profileHandler.addSubmitHandler(function (data) {
+      // myProfile.createProfile.call(myProfile, data);
+      myProfile.editProfile.call(myProfile, data);
+    });
+
+    smHandler.addSubmitHandler(function (data) {
+      myProfile.createProfile.call(myProfile, data);
+      myProfile.editSM.call(myProfile, data);
+    });
+
+    getUserData();
+
   });
 
-  smHandler.addSubmitHandler(function (data) {
-    myProfile.createProfile.call(myProfile, data);
-    myProfile.editSM.call(myProfile, data);
-  });
+  function getUserData() {
+    console.log(uid);
+    remoteDS.get(uid, function (data) {
+
+      myProfile.editProfile.call(myProfile, translateData(data));
+      console.log("get user data", data);
+    });
+  }
+
+  function translateData(data) {
+    return {
+      pName: data.firstName + " " + data.lastName,
+      firstName: data.firstName,
+      lastName: data.lastName,
+      pEmail: data.email
+    };
+  }
 
 })(window);

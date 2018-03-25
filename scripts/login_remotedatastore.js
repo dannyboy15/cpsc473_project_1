@@ -33,6 +33,22 @@
         sid: serverResponse.id
       };
 
+      // $.ajax({
+      //   type: "GET",
+      //   url: "http://localhost:2403/users/me",
+      //   xhrFields: {
+      //     withCredentials: true
+      //   },
+      //   crossDomain: true,
+      //   headers: {
+      //     Cookies: a
+      //   }
+      // }).done(function(res) {
+      //   console.log("response", res);
+      // });
+
+
+
       $.ajax("http://localhost:2403/users", {
         type: "GET",
         data: a

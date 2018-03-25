@@ -11,28 +11,45 @@
     this.db.add(user.pName, user);
   };
 
+  // data should be passed in as follows:
+  // {
+  //   pName: "firstName" + "lastName",
+  //   firstName: "firstName",
+  //   lastName: "lastName",
+  //   pLogo: "slogan",
+  //   pAbout: "about",
+  //   pPhone: "555-555-555",
+  //   pEmail: "something@email.com"
+  // }
+
   //function checks the user data and if data was entered (not ""), replace the element's innerHTML
   //identified by its id with the corresponding user data
   Profile.prototype.editProfile = function(user){
-    if(user.pName !== ""){
-      document.getElementById("profileName").innerHTML = user.pName;
-      document.getElementById("nameinput").setAttribute( "placeholder", user.pName );
+    if(user.pName !== "") {
+      this.db.update(this.profileId, {
+        firstName : user.firstName,
+        lastName : user.lastName
+      }, function() {
+        document.getElementById("profileName").innerHTML = user.pName;
+        document.getElementById("nameinput").setAttribute( "value", user.pName );
+      });
+
     }
     if(user.pLogo !== ""){
       document.getElementById("profileLogo").innerHTML = user.pLogo;
-      document.getElementById("logoinput").setAttribute( "placeholder", user.pLogo );
+      document.getElementById("logoinput").setAttribute( "value", user.pLogo );
     }
     if(user.pAbout !== ""){
       document.getElementById("profileAbout").innerHTML = user.pAbout;
-      document.getElementById("aboutinput").setAttribute( "placeholder", user.pAbout );
+      document.getElementById("aboutinput").setAttribute( "value", user.pAbout );
     }
     if(user.pPhone !== ""){
       document.getElementById("profilePhone").innerHTML = user.pPhone;
-      document.getElementById("phoneinput").setAttribute( "placeholder", user.pPhone );
+      document.getElementById("phoneinput").setAttribute( "value", user.pPhone );
     }
     if(user.pEmail !== ""){
       document.getElementById("profileEmail").innerHTML = user.pEmail;
-      document.getElementById("emailinput").setAttribute( "placeholder", user.pEmail );
+      document.getElementById("emailinput").setAttribute( "value", user.pEmail );
     }
   };
 

@@ -23,6 +23,12 @@
         data[item.name] = item.value;
         console.log(item.name + " is " + item.value);
       });
+      var names = data[pName].split(" ");
+      data.firstName = names[0];
+      names.shift();
+      data.lastName = names.join(" ");
+
+
       console.log(data);
       fn(data);
       this.reset();
