@@ -48,6 +48,10 @@ dpd create profiles-backend
 cd profiles-backend
 dpd -d
 ```
+## Image References
+businessman.jpg- https://www.freepik.com/free-photo/businessman-leader-in-modern-office-with-businesspeople-working_1174192.htm
+web_card.jpg- http://all-free-download.com/free-psd/download/professional-web-card-profile_175581.html
+albert.jpg- https://www.pinterest.es/pin/536702480572731530
 
 ## Authors
 * **Daniel Bravo** [dannyboy15](https://github.com/dannyboy15)
