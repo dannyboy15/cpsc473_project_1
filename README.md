@@ -54,5 +54,5 @@ dpd -d
 * **Dominick Hem** [domhem](https://github.com/domhem)
 * **Vishnu Shesha** [username](https://github.com)
 * **Roy Redman** [royredman4](https://github.com/royredman4)
-* **Prajwal Bhyrappa** [username](https://github.com)
+* **Prajwal Bhyrappa** [prajwal31](https://github.com/prajwal31)
 * **Peng Chen** [pengchen95](https://github.com/pengchen95)
