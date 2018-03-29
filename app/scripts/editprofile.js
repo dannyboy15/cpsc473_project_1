@@ -36,20 +36,28 @@
 
     }
     if(user.pLogo !== ""){
-      document.getElementById("profileLogo").innerHTML = user.pLogo;
-      document.getElementById("logoinput").setAttribute( "value", user.pLogo );
+      var logoTxt = (user.pLogo === undefined) ? "" : user.pLogo;
+
+      document.getElementById("profileLogo").innerHTML = logoTxt;
+      document.getElementById("logoinput").setAttribute("value", logoTxt);
     }
     if(user.pAbout !== ""){
-      document.getElementById("profileAbout").innerHTML = user.pAbout;
-      document.getElementById("aboutinput").setAttribute( "value", user.pAbout );
+      var aboutTxt = (user.pAbout === undefined) ? "" : user.pAbout;
+
+      document.getElementById("profileAbout").innerHTML = aboutTxt;
+      document.getElementById("aboutinput").setAttribute("value", aboutTxt);
     }
     if(user.pPhone !== ""){
-      document.getElementById("profilePhone").innerHTML = user.pPhone;
-      document.getElementById("phoneinput").setAttribute( "value", user.pPhone );
+      var phoneTxt = (user.pPhone === undefined) ? "" : user.pPhone;
+
+      document.getElementById("profilePhone").innerHTML = phoneTxt;
+      document.getElementById("phoneinput").setAttribute("value", phoneTxt);
     }
     if(user.pEmail !== ""){
-      document.getElementById("profileEmail").innerHTML = user.pEmail;
-      document.getElementById("emailinput").setAttribute( "value", user.pEmail );
+      var emailTxt = (user.pEmail === undefined) ? "" : user.pEmail;
+
+      document.getElementById("profileEmail").innerHTML = emailTxt;
+      document.getElementById("emailinput").setAttribute("value", emailTxt);
     }
   };
 
