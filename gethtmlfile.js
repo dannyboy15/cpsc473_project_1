@@ -3,10 +3,10 @@ var fs = require("fs");
 var mime = require("mime");
 
 var DIR = __dirname;
-var SCRIPT = "scripts";
+var SCRIPT = "app/scripts";
 var STYLE = "app/stylesheets";
 var HTML = "app";
-var IMG = "img";
+var IMG = "app/images";
 
 pages = {
   "/" : "welcome-page.html",
@@ -57,7 +57,7 @@ var getPage = function(url) {
       console.log("Serving a script: " + fileName);
       break;
 
-    case "img":
+    case "images":
       fileName = subpage;
       fileDir = IMG;
       console.log("serving an image: " + fileName);
@@ -73,7 +73,7 @@ var getPage = function(url) {
           fileName = vars[3];
           fileDir = SCRIPT;
           break;
-        case "img":
+        case "images":
           fileName = vars[3];
           fileDir = IMG;
           break;

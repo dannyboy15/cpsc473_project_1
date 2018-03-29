@@ -12,7 +12,7 @@ function previewFile() {
   if (file) {
     reader.readAsDataURL(file); //reads the data as a URL
   } else {
-    preview.src = "img/upload-empty.png";
+    preview.src = "images/upload-empty.png";
   }
 }
 previewFile(); //calls the function named previewFile()
@@ -23,7 +23,7 @@ function editFile() {
   var profilePic = document.getElementById("profilePic");
   //the profile image will not change if no image was uploaded
   //the url below is the address of the default preview image
-  if (preview.src != "http://localhost:3000/img/upload-empty.png") {
+  if (preview.src != "http://localhost:3000/images/upload-empty.png") {
     //console.log(preview.src);
     profilePic.src = preview.src;
   }
