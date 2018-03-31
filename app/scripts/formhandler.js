@@ -14,7 +14,7 @@
     }
   }
 
-  FormHandler.prototype.addSubmitHandler = function(fn) {
+  FormHandler.prototype.addSubmitHandler = function(fn, redirect) {
     console.log("Setting submit handler for form");
     this.$formElement.on("submit", function(event) {
       event.preventDefault();
@@ -26,8 +26,13 @@
       });
       console.log(data);
       fn(data);
-      this.reset();
-      this.elements[0].focus();
+
+      if(redirect) {
+        window.location = redirect;
+      } else {
+        this.reset();
+        this.elements[0].focus();
+      }
     });
   };
 

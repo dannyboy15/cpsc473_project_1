@@ -3,6 +3,7 @@
   var App = window.App || {};
   var $ = window.jQuery;
   var USERS = "http://localhost:2403/users";
+  var USER_ACCOUNTS = "http://localhost:2403/user-accounts";
 
   function RemoteDataStore(url) {
     if (!url) {
@@ -10,7 +11,36 @@
     }
 
     this.serverUrl = url;
+    this.usersUrl = USERS;
+    this.userAccountsUrl = USER_ACCOUNTS;
   }
+
+  RemoteDataStore.prototype.addUser = function (data, fn) {
+    var user = {
+      username : data.email,
+      password : data.password,
+      displayname : data.username
+    };
+
+    $.post(this.usersUrl, user, function (serverResponse) {
+      console.log("first request", serverResponse);
+
+      var newData = {
+        userid : serverResponse.id,
+        email : data.email,
+        password : data.password,
+        firstName : data.firstname,
+        lastName : data.lastname,
+        phone : data.phonenumber,
+        userName : data.username
+      };
+      console.log(newData);
+      $.post(this.userAccountsUrl, newData, function (res) {
+        console.log("second request", res);
+        fn(res);
+      }.bind(this));
+    }.bind(this));
+  };
 
   RemoteDataStore.prototype.add = function (val, cb) {
     $.post(this.serverUrl, val, function (serverResponse) {
