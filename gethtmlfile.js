@@ -15,7 +15,8 @@ pages = {
   "/profile": "profile.html",
   "/signup" : "signup.html",
   "/welcome" : "welcome-page.html",
-  "/register" : "../registration page/reg.html",
+  "/register" : "reg.html",
+  "/tos" : "terms.html",
   "404" : "404.html"
 };
 
