@@ -11,6 +11,19 @@ function closeOptionMenu() {
   document.getElementById("nav").style.display = "inline-block";
 }
 
+function openNoAuthMenu() {
+  document.getElementById("main").style.marginRight = "30%";
+  document.getElementById("noAuthMenu").style.width = "30%";
+  document.getElementById("noAuthMenu").style.display = "block";
+  document.getElementById("nav2").style.display = "none";
+}
+
+function closeNoAuthMenu() {
+  document.getElementById("main").style.marginRight = "0%";
+  document.getElementById("noAuthMenu").style.display = "none";
+  document.getElementById("nav2").style.display = "inline-block";
+}
+
 //welcome page sidebars
 function openWelcomeMenu() {
   document.getElementById("main").style.marginRight = "";

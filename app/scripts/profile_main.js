@@ -33,7 +33,14 @@
       myProfile.editSM.call(myProfile, data);
     });
 
+    // TODO change to toggle if auth
+    $(".logo").on("click", function (event) {
+      $("#noAuthNav").toggle();
+      $("#authNav").toggle();
+    })
+
     getUserData();
+    setMenu();
 
   });
 
@@ -53,6 +60,12 @@
       lastName: data.lastName,
       pEmail: data.email
     };
+  }
+
+  function setMenu() {
+    if (true) {
+      $("#noAuthNav").hide();
+    }
   }
 
 })(window);
