@@ -12,9 +12,10 @@
 
 
   var user = window.location.href.match(/\/profile\/([^#]+).*/);
+  console.log("user", user);
   var uid;
 
-  remoteDS.query({username:user[1]}, function (data) {
+  remoteDS.query({userName:user[1]}, function (data) {
     var a = data[0];
     uid = a.id;
 
