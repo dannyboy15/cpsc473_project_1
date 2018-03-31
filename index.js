@@ -1,6 +1,6 @@
 var http = require("http");
 var fs = require("fs");
-var getPage = require("./gethtmlfile.js");
+var getPage = require("./getresource.js");
 // var extract = require("./extract");
 // var mime = require("mime");
 

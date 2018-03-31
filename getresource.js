@@ -9,13 +9,11 @@ var HTML = "app";
 var IMG = "app/images";
 
 pages = {
-  "/" : "welcome-page.html",
+  "/" : "index.html",
   "/login" : "login.html",
   "/logout" : "logout.html",
   "/profile": "profile.html",
-  "/signup" : "signup.html",
-  "/welcome" : "welcome-page.html",
-  "/register" : "reg.html",
+  "/register" : "register.html",
   "/tos" : "terms.html",
   "404" : "404.html"
 };
