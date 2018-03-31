@@ -5,7 +5,7 @@
   <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="stylesheets/styles_test.css">
+  <link rel="stylesheet" href="stylesheets/profile_styles.css">
   <title>Profile Page</title>
 </head>
 
@@ -15,7 +15,7 @@
   <div>
     <div class="w3-sidebar w3-bar-block w3-card w3-animate-right w3-padding" style="display:none;right:0;" id="noAuthMenu">
       <button class="w3-button w3-xxlarge fa fa-window-close w3-light-grey" onclick="closeNoAuthMenu()"></button>
-      <label class="w3-bar-item w3-center w3-light-grey" href="#">MENU</label>
+      <label class="w3-bar-item w3-center w3-light-grey" href="">MENU</label>
 
       <div class="w3-row w3-section w3-bar-item w3-button" onclick="">
         <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-sign-in"></i></div>
@@ -24,7 +24,7 @@
 
       <div class="w3-row w3-section w3-bar-item w3-button" onclick="">
         <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-address-book"></i></div>
-        <div class="w3-rest"><a class="w3-bar-item" font size="15px">Sign Up</a></div>
+        <div class="w3-rest"><a class="w3-bar-item" font size="15px" href="/register">Sign Up</a></div>
       </div>
 
     </div>
@@ -34,7 +34,7 @@
   <div>
     <div class="w3-sidebar w3-bar-block w3-card w3-animate-right w3-padding" style="display:none;right:0;" id="optionMenu">
       <button class="w3-button w3-xxlarge fa fa-window-close w3-light-grey" onclick="closeOptionMenu()"></button>
-      <label class="w3-bar-item w3-center w3-light-grey" href="#">MENU</label>
+      <label class="w3-bar-item w3-center w3-light-grey" href="">MENU</label>
 
       <div class="w3-row w3-section w3-bar-item w3-button" onclick="openPicMenu()">
         <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user-circle"></i></div>
@@ -62,7 +62,7 @@
   <form data-profile="form">
     <div class="w3-sidebar w3-bar-block w3-card w3-animate-right w3-padding" style="display:none;right:0;" id="editMenu">
       <button class="w3-button w3-xxlarge fa fa-arrow-left w3-light-grey" onclick="closeEditMenu()"></button>
-      <label class="w3-bar-item w3-center w3-light-grey" href="#">EDIT PROFILE INFORMATION</label>
+      <label class="w3-bar-item w3-center w3-light-grey" href="">EDIT PROFILE INFORMATION</label>
 
       <div class="w3-row w3-section w3-bar-item">
         <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
@@ -107,7 +107,7 @@
   <form data-social-media="form">
     <div class="w3-sidebar w3-bar-block w3-card w3-animate-right w3-padding" style="display:none;right:0;" id="smMenu">
       <button class="w3-button w3-xxlarge fa fa-arrow-left w3-light-grey" onclick="closeSMMenu()"></button>
-      <label class="w3-bar-item w3-center w3-light-grey" href="#">EDIT SOCIAL MEDIA INFORMATION</label>
+      <label class="w3-bar-item w3-center w3-light-grey" href="">EDIT SOCIAL MEDIA INFORMATION</label>
 
       <div class="w3-row w3-section w3-bar-item">
         <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-facebook-square"></i></div>
@@ -144,10 +144,10 @@
   <!-- Edit Profile Picture Sidebar - - - - - - - - - - - - - - - - - - - - - -->
   <div class="w3-sidebar w3-bar-block w3-card w3-animate-right w3-padding" style="display:none;right:0;" id="picMenu">
     <button class="w3-button w3-xxlarge fa fa-arrow-left w3-light-grey" onclick="closePicMenu()"></button>
-    <label class="w3-bar-item w3-center w3-light-grey" href="#">EDIT PROFILE IMAGE</label>
+    <label class="w3-bar-item w3-center w3-light-grey" href="">EDIT PROFILE IMAGE</label>
     <input type="file" class="w3-bar-item" onchange="previewFile()"><br>
     <h3 class="w3-bar-item w3-center">Preview</h3>
-    <img class="w3-bar-item" src="images/upload-empty.png" id="preview">
+    <img class="w3-bar-item" src="images/upload_empty.png" id="preview">
     <button class="w3-button w3-block w3-section w3-dark-gray w3-padding" onclick="editFile()">Save Changes</button>
   </div>
 
@@ -155,15 +155,15 @@
   <div id="main">
 
     <div class="w3-display-container w3-dark-gray w3-opacity" id="authNav">
-      <a href="#"><i class="fa fa-home w3-button"></i></a>
+      <a href="/"><i class="fa fa-home w3-button"></i></a>
       <img class="w3-display-middle logo" src="images/website_logo.png" style="height:50px">
-      <a href="#"><i class="fa fa-cog w3-button w3-right" onclick="openOptionMenu()" id="nav"></i></a>
+      <a><i class="fa fa-cog w3-button w3-right" onclick="openOptionMenu()" id="nav"></i></a>
     </div>
 
     <div class="w3-display-container w3-dark-gray w3-opacity" id="noAuthNav">
       <a href="/"><i class="fa fa-home w3-button"></i></a>
       <img class="w3-display-middle logo" src="images/website_logo.png" style="height:50px">
-      <a href="#"><i class="fa fa-navicon w3-button w3-right" onclick="openNoAuthMenu()" id="nav2"></i></a>
+      <a><i class="fa fa-navicon w3-button w3-right" onclick="openNoAuthMenu()" id="nav2"></i></a>
     </div>
 
 
@@ -187,10 +187,10 @@
           </div>
           <div class="w3-container w3-cell" style="width:50%">
             <h3>Social Media</h3>
-            <a href="#" id="fb_link" onclick="" hidden><i class="fa fa-facebook-square"></i></a>
-            <a href="#" id="t_link" onclick="" hidden><i class="fa fa-twitter-square"></i></a>
-            <a href="#" id="i_link" onclick="" hidden><i class="fa fa-instagram"></i></a>
-            <a href="#" id="l_link" onclick="" hidden><i class="fa fa-linkedin-square"></i></a>
+            <a href="" id="fb_link" onclick="" hidden><i class="fa fa-facebook-square"></i></a>
+            <a href="" id="t_link" onclick="" hidden><i class="fa fa-twitter-square"></i></a>
+            <a href="" id="i_link" onclick="" hidden><i class="fa fa-instagram"></i></a>
+            <a href="" id="l_link" onclick="" hidden><i class="fa fa-linkedin-square"></i></a>
           </div>
         </div>
       </div>
@@ -207,8 +207,8 @@
   <script src="scripts/profile_sidebar.js" charset="utf-8"></script>
   <script src="scripts/profile_formhandler.js" charset="utf-8"></script>
   <script src="scripts/remotedatastore.js" charset="utf-8"></script>
-  <script src="scripts/editprofile.js" charset="utf-8"></script>
-  <script src="scripts/editpicture.js" charset="utf-8"></script>
+  <script src="scripts/profile_editprofile.js" charset="utf-8"></script>
+  <script src="scripts/profile_editpicture.js" charset="utf-8"></script>
   <script src="scripts/profile_main.js" charset="utf-8"></script>
 </body>
 

@@ -11,7 +11,7 @@
 -->
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="stylesheets/reg-styles.css">
+  <link rel="stylesheet" href="stylesheets/register_styles.css">
 
 
 
@@ -25,16 +25,16 @@
   <div>
     <div class="w3-sidebar w3-bar-block w3-card w3-animate-right w3-padding" style="display:none;right:0;" id="welcomeMenu">
       <button class="w3-button w3-xxlarge fa fa-window-close w3-light-grey" onclick="closeWelcomeMenu()"></button>
-      <label class="w3-bar-item w3-center w3-light-grey" href="#">MENU</label>
+      <label class="w3-bar-item w3-center w3-light-grey" href="">MENU</label>
 
       <div class="w3-row w3-section w3-bar-item w3-button">
         <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-sign-in"></i></div>
-        <div class="w3-rest"><a class="w3-bar-item" font size="15px">Login</a></div>
+        <div class="w3-rest"><a class="w3-bar-item" font size="15px" href="/login">Login</a></div>
       </div>
 
       <div class="w3-row w3-section w3-bar-item w3-button" onclick="">
         <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-address-book"></i></div>
-        <div class="w3-rest"><a class="w3-bar-item" font size="15px">Sign Up</a></div>
+        <div class="w3-rest"><a class="w3-bar-item" font size="15px" href="/register">Sign Up</a></div>
       </div>
 
     </div>
@@ -43,9 +43,9 @@
   <!-- Header - - - - - - - - - - - - - - - - - - - - - -->
   <div id="main">
     <div class="w3-display-container w3-dark-gray w3-opacity">
-      <a href="#"><i class="fa fa-home w3-button"></i></a>
+      <a href="/"><i class="fa fa-home w3-button"></i></a>
       <img class="w3-display-middle" src="images/website_logo.png" style="height:50px">
-      <a href="#"><i class="fa fa-navicon w3-button w3-right" onclick="openWelcomeMenu()" id="nav"></i></a>
+      <a><i class="fa fa-navicon w3-button w3-right" onclick="openWelcomeMenu()" id="nav"></i></a>
     </div>
 
     <div class="login-container">
@@ -128,13 +128,14 @@
         </div>
       </div>
     </div>
+  </div>
 
     <footer class="site-footer w3-dark-gray w3-opacity">
       <p class="center">&emsp;&copy; CPSC473-Section 2 Team 2</p>
     </footer>
 
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="scripts/js.js"></script>
+    <script src="scripts/validation.js"></script>
     <script type="text/javascript">
       document.getElementById("field_terms").setCustomValidity("Please indicate that you accept the Terms and Conditions");
     </script>
