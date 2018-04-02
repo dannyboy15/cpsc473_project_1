@@ -36,13 +36,24 @@
     });
   };
 
-  FormHandler.prototype.addInputHandler = function(fn) {
-    console.log("Setting input handler for form");
-    this.$formElement.on("blur", "[name=\"emailAddress\"]", function(event) {
-      var d = {}
-      d["email"] = event.target.value;
-      console.log(d);
-      fn(d);
+  FormHandler.prototype.addInputHandler = function(attr, fn) {
+    console.log("Setting input handler for " + attr);
+    this.$formElement.on("blur", "[name=\"" + attr + "\"]", function(event) {
+      // console.log("IH", event.target);
+      fn(event.target);
+
+      // var val = event.target.value;
+      // var message = "";
+      // if (fn(val)) {
+      //   console.log("passed");
+      //   event.target.setCustomValidity("");
+      // } else {
+      //   console.log("failed");
+      //
+      //   message = val ? val + " is not a valid " + name + "! " + hint : name + " is required!";
+      //   $("#" + attr + "Err").text(message);
+      //   event.target.setCustomValidity(message);
+      // }
     });
   };
 

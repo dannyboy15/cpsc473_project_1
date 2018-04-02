@@ -20,7 +20,7 @@
     var user = {
       username : data.email,
       password : data.password,
-      displayname : data.username
+      displayname : data.userName
     };
 
     $.post(this.usersUrl, user, function (serverResponse) {
@@ -30,10 +30,10 @@
         userid : serverResponse.id,
         email : data.email,
         password : data.password,
-        firstName : data.firstname,
-        lastName : data.lastname,
+        firstName : data.firstName,
+        lastName : data.lastName,
         phone : data.phonenumber,
-        userName : data.username
+        userName : data.userName
       };
       console.log(newData);
       $.post(this.userAccountsUrl, newData, function (res) {
@@ -98,10 +98,10 @@
       type: "GET",
       data: d
     }).done(function(serverResponse) {
-      // console.log(serverResponse);
-      exists = serverResponse.length > 0;
-      console.log(exists);
-      cb(serverResponse);
+      console.log(serverResponse);
+      var exists = serverResponse.length > 0;
+      console.log("userExists response:", exists);
+      cb(exists, serverResponse);
     });
   };
 
