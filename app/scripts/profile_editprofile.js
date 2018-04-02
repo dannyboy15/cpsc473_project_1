@@ -2,9 +2,21 @@
   "use strict";
   var App = window.App || {};
 
-  function Profile(profileId, db) {
-    this.profileId = profileId;
+  function Profile(db, profileId) {
     this.db = db;
+    if (profileId) {
+      this.profileId = profileId;
+    } else {
+      var user = window.location.href.match(/\/profile\/([^#]+).*/);
+      console.log("User name from URL:", user);
+      var uid;
+      this.db.query({
+        userName: user[1]
+      }, function(data) {
+        var a = data[0];
+        this.profileId = a.id;
+      });
+    }
   }
 
   Profile.prototype.createProfile = function(user) {
@@ -24,71 +36,134 @@
 
   //function checks the user data and if data was entered (not ""), replace the element's innerHTML
   //identified by its id with the corresponding user data
-  Profile.prototype.editProfile = function(user){
-    if(user.pName !== "") {
-      this.db.update(this.profileId, {
-        firstName : user.firstName,
-        lastName : user.lastName
-      }, function() {
-        document.getElementById("profileName").innerHTML = user.pName;
-        document.getElementById("nameinput").setAttribute( "value", user.pName );
-      });
+  // Profile.prototype.editProfile = function(user){
+  //   console.log('edit profile', user);
+  //     this.db.update(this.profileId, user, function() {
+  //       if(user.pName !== "") {
+  //         document.getElementById("profileName").innerHTML = user.pName;
+  //         document.getElementById("nameinput").setAttribute( "value", user.pName );
+  //       }
+  //       if(user.pLogo !== ""){
+  //         var logoTxt = (user.pLogo === undefined) ? "" : user.pLogo;
+  //
+  //         document.getElementById("profileLogo").innerHTML = logoTxt;
+  //         document.getElementById("logoinput").setAttribute("value", logoTxt);
+  //       }
+  //       if(user.pAbout !== ""){
+  //         var aboutTxt = (user.pAbout === undefined) ? "" : user.pAbout;
+  //
+  //         document.getElementById("profileAbout").innerHTML = aboutTxt;
+  //         document.getElementById("aboutinput").setAttribute("value", aboutTxt);
+  //       }
+  //       if(user.pPhone !== ""){
+  //         var phoneTxt = (user.pPhone === undefined) ? "" : user.pPhone;
+  //
+  //         document.getElementById("profilePhone").innerHTML = phoneTxt;
+  //         document.getElementById("phoneinput").setAttribute("value", phoneTxt);
+  //       }
+  //       if(user.pEmail !== ""){
+  //         var emailTxt = (user.pEmail === undefined) ? "" : user.pEmail;
+  //
+  //         document.getElementById("profileEmail").innerHTML = emailTxt;
+  //         document.getElementById("emailinput").setAttribute("value", emailTxt);
+  //       }
+  //     });
+  //
+  // };
 
-    }
-    if(user.pLogo !== ""){
-      var logoTxt = (user.pLogo === undefined) ? "" : user.pLogo;
+  Profile.prototype.editProfile = function(user) {
+    console.log("User passed in to editProfile:", user);
+    this.db.update(this.profileId, user, function(data) {
+      document.getElementById("profileName").innerHTML = data.firstName + " " + data.lastName;
+      document.getElementById("firstnameinput").setAttribute("value", data.firstName);
+      document.getElementById("lastnameinput").setAttribute("value", data.lastName);
 
-      document.getElementById("profileLogo").innerHTML = logoTxt;
-      document.getElementById("logoinput").setAttribute("value", logoTxt);
-    }
-    if(user.pAbout !== ""){
-      var aboutTxt = (user.pAbout === undefined) ? "" : user.pAbout;
+      var sloganTxt = (data.slogan === undefined) ? "" : data.slogan;
+      document.getElementById("profileSlogan").innerHTML = sloganTxt;
+      document.getElementById("sloganinput").setAttribute("value", sloganTxt);
 
+      var aboutTxt = (data.about === undefined) ? "" : data.about;
       document.getElementById("profileAbout").innerHTML = aboutTxt;
       document.getElementById("aboutinput").setAttribute("value", aboutTxt);
-    }
-    if(user.pPhone !== ""){
-      var phoneTxt = (user.pPhone === undefined) ? "" : user.pPhone;
 
+      var phoneTxt = (data.phone === undefined) ? "" : data.phone;
       document.getElementById("profilePhone").innerHTML = phoneTxt;
       document.getElementById("phoneinput").setAttribute("value", phoneTxt);
-    }
-    if(user.pEmail !== ""){
-      var emailTxt = (user.pEmail === undefined) ? "" : user.pEmail;
 
+      var emailTxt = (data.email === undefined) ? "" : data.email;
       document.getElementById("profileEmail").innerHTML = emailTxt;
       document.getElementById("emailinput").setAttribute("value", emailTxt);
-    }
+      $("#emailinput").prop("disabled", true);
+    });
+
   };
+
+
 
   //function checks the user data and if data was entered (not ""), set the element's onclick attribute
   //with the corresponding link inputted by the user
   //if a valid link was submitted, the corresponding icon will no longer be hidden
-  Profile.prototype.editSM = function(user){
-    if(user.pFacebook !== ""){
-      var link = "'" + user.pFacebook + "'";
-      document.getElementById("fb_link").setAttribute( "onClick", "window.open(" + link + ")" );
-      document.getElementById("fb_link").removeAttribute("hidden");
-      document.getElementById("fbinput").setAttribute( "placeholder", user.pFacebook );
+  // Profile.prototype.editSM = function(user){
+  //   console.log("User passed in to editSM", user);
+  //   if(user.pFacebook !== ""){
+  //     var link = "'" + user.pFacebook + "'";
+  //     document.getElementById("fb_link").setAttribute( "onClick", "window.open(" + link + ")" );
+  //     document.getElementById("fb_link").removeAttribute("hidden");
+  //     document.getElementById("fbinput").setAttribute( "placeholder", user.pFacebook );
+  //   }
+  //   if(user.pTwitter !== ""){
+  //     var link = "'" + user.pTwitter + "'";
+  //     document.getElementById("t_link").setAttribute( "onClick", "window.open(" + link + ")" );
+  //     document.getElementById("t_link").removeAttribute("hidden");
+  //     document.getElementById("tinput").setAttribute( "placeholder", user.pTwitter );
+  //   }
+  //   if(user.pInsta !== ""){
+  //     var link = "'" + user.pInsta + "'";
+  //     document.getElementById("i_link").setAttribute( "onClick", "window.open(" + link + ")" );
+  //     document.getElementById("i_link").removeAttribute("hidden");
+  //     document.getElementById("iinput").setAttribute( "placeholder", user.pInsta );
+  //   }
+  //   if(user.pLinkedIn !== ""){
+  //     var link = "'" + user.pLinkedIn + "'";
+  //     document.getElementById("l_link").setAttribute( "onClick", "window.open(" + link + ")" );
+  //     document.getElementById("l_link").removeAttribute("hidden");
+  //     document.getElementById("linput").setAttribute( "placeholder", user.pLinkedIn );
+  //   }
+  //
+
+  Profile.prototype.editSM = function(user) {
+    console.log("User passed in to editSM", user);
+    if (!user) {
+      return;
     }
-    if(user.pTwitter !== ""){
-      var link = "'" + user.pTwitter + "'";
-      document.getElementById("t_link").setAttribute( "onClick", "window.open(" + link + ")" );
-      document.getElementById("t_link").removeAttribute("hidden");
-      document.getElementById("tinput").setAttribute( "placeholder", user.pTwitter );
-    }
-    if(user.pInsta !== ""){
-      var link = "'" + user.pInsta + "'";
-      document.getElementById("i_link").setAttribute( "onClick", "window.open(" + link + ")" );
-      document.getElementById("i_link").removeAttribute("hidden");
-      document.getElementById("iinput").setAttribute( "placeholder", user.pInsta );
-    }
-    if(user.pLinkedIn !== ""){
-      var link = "'" + user.pLinkedIn + "'";
-      document.getElementById("l_link").setAttribute( "onClick", "window.open(" + link + ")" );
-      document.getElementById("l_link").removeAttribute("hidden");
-      document.getElementById("linput").setAttribute( "placeholder", user.pLinkedIn );
-    }
+    this.db.update(this.profileId, {
+      socialNetworks: user
+    }, function(data) {
+      if (user.pFacebook !== "") {
+        var link = "'" + user.pFacebook + "'";
+        document.getElementById("fb_link").setAttribute("onClick", "window.open(" + link + ")");
+        document.getElementById("fb_link").removeAttribute("hidden");
+        document.getElementById("fbinput").setAttribute("value", user.pFacebook);
+      }
+      if (user.pTwitter !== "") {
+        var link = "'" + user.pTwitter + "'";
+        document.getElementById("t_link").setAttribute("onClick", "window.open(" + link + ")");
+        document.getElementById("t_link").removeAttribute("hidden");
+        document.getElementById("tinput").setAttribute("value", user.pTwitter);
+      }
+      if (user.pInsta !== "") {
+        var link = "'" + user.pInsta + "'";
+        document.getElementById("i_link").setAttribute("onClick", "window.open(" + link + ")");
+        document.getElementById("i_link").removeAttribute("hidden");
+        document.getElementById("iinput").setAttribute("value", user.pInsta);
+      }
+      if (user.pLinkedIn !== "") {
+        var link = "'" + user.pLinkedIn + "'";
+        document.getElementById("l_link").setAttribute("onClick", "window.open(" + link + ")");
+        document.getElementById("l_link").removeAttribute("hidden");
+        document.getElementById("linput").setAttribute("value", user.pLinkedIn);
+      }
+    });
   };
 
   //function replaces the preview image in the menu sidebar with the uploaded image
@@ -121,16 +196,18 @@
       //console.log(preview.src);
       var file = document.querySelector("input[type=file]").files[0];
       // console.log(file);
-      this.db.upload(this.profileId, file, function (data) {
+      this.db.upload(this.profileId, file, function(data) {
         console.log("edit prof data", data);
-        this.db.update(this.profileId, {profileImgUrl : "http://localhost:2403/upload/" + data[0].filename}, function(data2) {
+        this.db.update(this.profileId, {
+          profileImgUrl: "http://localhost:2403/upload/" + data[0].filename
+        }, function(data2) {
           profilePic.src = data2.profileImgUrl;
         }.bind(this));
       }.bind(this));
     }
   }
 
-  Profile.prototype.setPic = function (url) {
+  Profile.prototype.setPic = function(url) {
     $("#profilePic").attr("src", url);
   }
 

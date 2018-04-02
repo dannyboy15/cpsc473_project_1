@@ -12,30 +12,29 @@
 
 
   var user = window.location.href.match(/\/profile\/([^#]+).*/);
-  console.log("user", user);
+  console.log("User name from URL:", user);
   var uid;
 
   remoteDS.query({userName:user[1]}, function (data) {
-    var a = data[0];
-    uid = a.id;
+    uid = data[0].id;
 
-    var myProfile = new Profile(uid, remoteDS);
+    var myProfile = new Profile(remoteDS, uid);
     window.myProfile = myProfile;
     var profileHandler = new FormHandler(PROFILE_FORM_SELECTOR);
     var smHandler = new FormHandler(SM_FORM_SELECTOR);
 
     profileHandler.addSubmitHandler(function (data) {
-      // myProfile.createProfile.call(myProfile, data);
       myProfile.editProfile.call(myProfile, data);
+      closeEditMenu();
+      closeOptionMenu();
     });
 
     smHandler.addSubmitHandler(function (data) {
-      myProfile.createProfile.call(myProfile, data);
       myProfile.editSM.call(myProfile, data);
     });
 
     $("[data-profile-pic=\"btn\"]").on("click", function(event){
-      console.log("pic button clicked");
+      console.log("Pic button clicked");
       // console.log(event);
       // console.log("edit file", editFile());
       myProfile.editFile();
@@ -48,7 +47,7 @@
     })
 
     getUserData();
-    setMenu();
+    setMenu(); //TODO remove
 
   });
 
@@ -56,21 +55,14 @@
     console.log(uid);
     remoteDS.get(uid, function (data) {
 
-      myProfile.editProfile.call(myProfile, translateData(data));
+      myProfile.editProfile.call(myProfile, data);
+      myProfile.editSM.call(myProfile, data.socialNetworks);
       myProfile.setPic(data.profileImgUrl);
-      console.log("get user data", data);
+      console.log("getUserData returned:", data);
     });
   }
 
-  function translateData(data) {
-    return {
-      pName: data.firstName + " " + data.lastName,
-      firstName: data.firstName,
-      lastName: data.lastName,
-      pEmail: data.email
-    };
-  }
-
+  // TODO remove
   function setMenu() {
     if (true) {
       $("#noAuthNav").hide();

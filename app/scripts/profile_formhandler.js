@@ -24,13 +24,6 @@
         console.log(item.name + " is " + item.value);
       });
       console.log(data);
-      var names = data["pName"].split(" ");
-      data.firstName = names[0];
-      names.shift();
-      data.lastName = names.join(" ");
-
-
-      console.log(data);
       fn(data);
       this.reset();
       this.elements[0].focus();
