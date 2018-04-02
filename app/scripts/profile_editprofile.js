@@ -91,6 +91,50 @@
     }
   };
 
+  //function replaces the preview image in the menu sidebar with the uploaded image
+  Profile.prototype.previewFile = function() {
+    //get the preview image location by ID
+    var preview = document.getElementById("preview");
+    var file = document.querySelector("input[type=file]").files[0];
+    console.log(file);
+    var reader = new FileReader();
+    //if image was uploaded, replace the preview image with the uploaded image
+    reader.onloadend = function() {
+      preview.src = reader.result;
+    };
+
+    if (file) {
+      reader.readAsDataURL(file); //reads the data as a URL
+    } else {
+      preview.src = "images/upload_empty.png";
+    }
+  }
+  // previewFile(); //calls the function named previewFile()
+
+  //function replaces the current profile image with the new uploaded image
+  Profile.prototype.editFile = function() {
+    var preview = document.getElementById("preview");
+    var profilePic = document.getElementById("profilePic");
+    //the profile image will not change if no image was uploaded
+    //the url below is the address of the default preview image
+    if (preview.src != "http://localhost:3000/profile/images/upload_empty.png") {
+      //console.log(preview.src);
+      var file = document.querySelector("input[type=file]").files[0];
+      // console.log(file);
+      this.db.upload(this.profileId, file, function (data) {
+        console.log("edit prof data", data);
+        this.db.update(this.profileId, {profileImgUrl : "http://localhost:2403/upload/" + data[0].filename}, function(data2) {
+          profilePic.src = data2.profileImgUrl;
+        }.bind(this));
+      }.bind(this));
+    }
+  }
+
+  Profile.prototype.setPic = function (url) {
+    $("#profilePic").attr("src", url);
+  }
+
+
   App.Profile = Profile;
   window.App = App;
 })(window);

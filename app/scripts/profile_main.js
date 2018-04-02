@@ -34,6 +34,13 @@
       myProfile.editSM.call(myProfile, data);
     });
 
+    $("[data-profile-pic=\"btn\"]").on("click", function(event){
+      console.log("pic button clicked");
+      // console.log(event);
+      // console.log("edit file", editFile());
+      myProfile.editFile();
+    });
+
     // TODO change to toggle if auth
     $(".logo").on("click", function (event) {
       $("#noAuthNav").toggle();
@@ -50,6 +57,7 @@
     remoteDS.get(uid, function (data) {
 
       myProfile.editProfile.call(myProfile, translateData(data));
+      myProfile.setPic(data.profileImgUrl);
       console.log("get user data", data);
     });
   }
